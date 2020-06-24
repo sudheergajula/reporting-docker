@@ -12,4 +12,4 @@ curl -G http://localhost:8086/query?pretty=true --data-urlencode "db=glances" --
 
 echo
 echo "Create a new database ?"
-echo "curl -XPOST 'http://localhost:8086/query' --data-urlencode 'q=CREATE DATABASE mydb'"
+echo "curl -XPOST 'http://localhost:8086/query' --data-urlencode 'q=CREATE DATABASE metrics_db'"
