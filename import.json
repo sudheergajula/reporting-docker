@@ -18,7 +18,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1593005375131,
+  "iteration": 1593764835338,
   "links": [],
   "panels": [
     {
@@ -37,28 +37,37 @@
     },
     {
       "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
       "datasource": "InfluxDB",
       "description": "Latest sample of the value of number of active tasks, summed over all executors active in the selected time filter interval.",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 500
+              }
+            ]
+          },
+          "unit": "none"
         },
         "overrides": []
-      },
-      "format": "none",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
       },
       "gridPos": {
         "h": 5,
@@ -69,38 +78,26 @@
       "id": 41,
       "interval": null,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
+      "options": {
+        "colorMode": "value",
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ]
+        },
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
         }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
       },
-      "tableColumn": "",
+      "pluginVersion": "7.0.3",
       "targets": [
         {
           "groupBy": [
@@ -138,18 +135,8 @@
           ]
         }
       ],
-      "thresholds": "",
       "title": "N# of Active Tasks - latest value",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "avg"
+      "type": "stat"
     },
     {
       "cacheTimeout": null,
@@ -360,28 +347,33 @@
     },
     {
       "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
       "datasource": "InfluxDB",
       "description": "Total time spent in GC operations during task execution. Displays values for all the completed tasks, from the task metrics data source. Note, values from executors that are no more active in the selected time window are not counted.",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
         },
         "overrides": []
-      },
-      "format": "ms",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
       },
       "gridPos": {
         "h": 5,
@@ -392,38 +384,26 @@
       "id": 46,
       "interval": "15s",
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
+      "options": {
+        "colorMode": "value",
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
         }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
       },
-      "tableColumn": "",
+      "pluginVersion": "7.0.3",
       "targets": [
         {
           "groupBy": [
@@ -443,7 +423,7 @@
           "measurement": "job.activeJobs",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "select sum(perprocessval) from (SELECT process, last(\"value\") as perprocessval FROM \"jvmGCTime.count\" WHERE \"applicationid\" = '$ApplicationId' and $timeFilter GROUP BY process) \n",
+          "query": "select sum(perprocessval) from (SELECT executor_id, last(\"value\") as perprocessval FROM \"executor.jvmGCTime\" WHERE \"app_id\" = '$PipelineName' and $timeFilter GROUP BY executor_id) \n",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -470,18 +450,8 @@
           ]
         }
       ],
-      "thresholds": "",
       "title": "Total Task GC Time ",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
+      "type": "stat"
     },
     {
       "cacheTimeout": null,
@@ -803,7 +773,7 @@
           "measurement": "heap.usage",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "select mean(lastvalperprocess)*100 from  (SELECT process, last(value) as lastvalperprocess FROM \"heap.usage\" WHERE \"applicationid\" = '$ApplicationId' and $timeFilter GROUP BY process)\n",
+          "query": "select mean(lastvalperprocess)*100 from  (SELECT process, last(value) as lastvalperprocess FROM \"jvm\" WHERE \"app_id\" = '$PipelineName' AND mem_type='heap' and qty='usage' and $timeFilter GROUP BY exxecutor_id)\n",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1356,7 +1326,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "",
+          "alias": "Executor - $Executors",
           "groupBy": [
             {
               "params": [
@@ -1630,7 +1600,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "GCTime - Executor $tag_process",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -1648,7 +1618,7 @@
           "measurement": "jvmGCTime.count",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "SELECT non_negative_derivative(\"value\", 1s)  / 1000 FROM  \"jvmGCTime.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY process\n",
+          "query": "SELECT non_negative_derivative(\"value\", 1s)  / 1000 FROM  \"executor.jvmGCTime\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter GROUP BY executor_id\n",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1685,7 +1655,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Garbage Collection Time (N# of cores equivalent) - from task metrics",
+      "title": "Garbage Collection Time (expressed in milliseconds) - from task metrics",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1946,7 +1916,7 @@
           "measurement": "deserializeCpuTime.count",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000000000 as perprocessval FROM \"deserializeCpuTime.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY time($__interval), process) GROUP BY time($__interval)",
+          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000000000 as perprocessval FROM \"executor.deserializeCpuTime\"  WHERE \"app_id\" = '$PipelineName' AND $timeFilter GROUP BY time($__interval), executor_id) GROUP BY time($__interval)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1985,7 +1955,7 @@
           "measurement": "deserializeTime.count",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000 as perprocessval FROM \"deserializeTime.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY time($__interval), process) GROUP BY time($__interval)",
+          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000 as perprocessval FROM \"executor.deserializeTime\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter GROUP BY time($__interval), executor_id) GROUP BY time($__interval)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -2024,7 +1994,7 @@
           "measurement": "cpuTime.count",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000000000 as perprocessval FROM \"cpuTime.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY time($__interval), process) GROUP BY time($__interval)",
+          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000000000 as perprocessval FROM \"cpuTime.count\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter GROUP BY time($__interval), executor_id) GROUP BY time($__interval)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series",
@@ -2063,7 +2033,7 @@
           "measurement": "shuffleWriteTime.count",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000000000 as perprocessval FROM \"shuffleWriteTime.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY time($__interval), process) GROUP BY time($__interval)",
+          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000000000 as perprocessval FROM \"executor.shuffleWriteTime\" WHERE \"applicationid\" = '$PipelineName' AND $timeFilter GROUP BY time($__interval), executor_id) GROUP BY time($__interval)",
           "rawQuery": true,
           "refId": "D",
           "resultFormat": "time_series",
@@ -2102,7 +2072,7 @@
           "measurement": "resultSerializationTime.count",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000 as perprocessval FROM \"resultSerializationTime.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY time($__interval), process) GROUP BY time($__interval)",
+          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000 as perprocessval FROM \"executor.resultSerializationTime\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter GROUP BY time($__interval), executor_id) GROUP BY time($__interval)",
           "rawQuery": true,
           "refId": "E",
           "resultFormat": "time_series",
@@ -2141,7 +2111,7 @@
           "measurement": "shuffleFetchWaitTime.count",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000 as perprocessval FROM \"shuffleFetchWaitTime.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY time($__interval), process) GROUP BY time($__interval)",
+          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000 as perprocessval FROM \"executor.shuffleFetchWaitTime\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter GROUP BY time($__interval), executor_id) GROUP BY time($__interval)",
           "rawQuery": true,
           "refId": "F",
           "resultFormat": "time_series",
@@ -2185,7 +2155,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000 as perprocessval FROM \"jvmGCTime.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY time($__interval), process) GROUP BY time($__interval)",
+          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000 as perprocessval FROM \"executor.jvmGCTime\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter GROUP BY time($__interval), executor_id) GROUP BY time($__interval)",
           "rawQuery": true,
           "refId": "G",
           "resultFormat": "time_series",
@@ -2223,7 +2193,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000 as perprocessval FROM \"runTime.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY time($__interval), process) GROUP BY time($__interval)",
+          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) / 1000 as perprocessval FROM \"executor.runTime\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter GROUP BY time($__interval), executor_id) GROUP BY time($__interval)",
           "rawQuery": true,
           "refId": "H",
           "resultFormat": "time_series",
@@ -2311,6 +2281,7 @@
       "legend": {
         "avg": false,
         "current": false,
+        "hideZero": true,
         "max": false,
         "min": false,
         "show": true,
@@ -2645,7 +2616,7 @@
           "measurement": "shuffleFetchWaitTime.count",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "SELECT non_negative_derivative(\"value\", 1s) / 1000000000  FROM \"shuffleWriteTime.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY process\n",
+          "query": "SELECT non_negative_derivative(\"value\", 1s) / 1000000000  FROM \"executor.shuffleWriteTime\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter GROUP BY process\n",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -3230,7 +3201,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "heap Memory  Used - Executor $tag_process",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -3248,7 +3219,7 @@
           "measurement": "heap.used",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "SELECT value FROM \"memory.onHeapMemUsed_MB\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY process",
+          "query": "SELECT value FROM  \"BlockManager\"  WHERE \"app_id\" = '$PipelineName' AND  qty = 'onHeapMemUsed_MB' AND $timeFilter GROUP BY executor_id",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -3281,7 +3252,7 @@
           ]
         },
         {
-          "alias": "non-heap Memory  Used - Executor $tag_process",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -3298,7 +3269,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT value FROM \"memory.offHeapMemUsed_MB\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY process",
+          "query": "SELECT value FROM \"BlockManager\" WHERE \"app_id\" = '$PipelineName' AND  qty = 'offHeapMemUsed_MB' AND $timeFilter GROUP BY executor_id ",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series",
@@ -3319,7 +3290,7 @@
           "tags": []
         },
         {
-          "alias": "Disk used - Executor $tag_process",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -3336,7 +3307,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT value FROM \"disk.diskSpaceUsed_MB\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY process",
+          "query": "SELECT value FROM \"BlockManager\" WHERE \"app_id\" = '$PipelineName' AND qty = 'diskSpaceUsed_MB'  AND $timeFilter GROUP BY executor_id",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -3556,13 +3527,27 @@
     },
     {
       "aliasColors": {},
-      "bars": false,
+      "bars": true,
       "dashLength": 10,
       "dashes": false,
       "datasource": "InfluxDB",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
         },
         "overrides": []
       },
@@ -3578,10 +3563,12 @@
       "id": 61,
       "interval": "15s",
       "legend": {
+        "alignAsTable": false,
         "avg": false,
         "current": false,
         "max": false,
         "min": false,
+        "rightSide": false,
         "show": true,
         "total": false,
         "values": false
@@ -3589,18 +3576,19 @@
       "lines": true,
       "linewidth": 1,
       "links": [],
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "options": {
         "dataLinks": []
       },
       "paceLength": 10,
       "percentage": false,
+      "pluginVersion": "7.0.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [],
       "spaceLength": 10,
-      "stack": true,
+      "stack": false,
       "steppedLine": false,
       "targets": [
         {
@@ -3622,7 +3610,7 @@
           "measurement": "filesystem.hdfs.read_bytes",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "SELECT non_negative_derivative(\"value\", 1s)  FROM \"executor.filesystem.hdfs\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter AND qty='write_bytes' GROUP BY executor_id",
+          "query": "SELECT non_negative_derivative(\"value\", 1s)  FROM \"executor.filesystem.hdfs\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter AND qty='write_bytes'  GROUP BY executor_id",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -3705,7 +3693,21 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
         },
         "overrides": []
       },
@@ -3730,7 +3732,7 @@
         "values": false
       },
       "lines": true,
-      "linewidth": 1,
+      "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
       "options": {
@@ -3738,6 +3740,7 @@
       },
       "paceLength": 10,
       "percentage": false,
+      "pluginVersion": "7.0.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -3747,7 +3750,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "shuffle Total Bytes Read - Executor $tag_process",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -3765,7 +3768,7 @@
           "measurement": "shuffleTotalBytesRead.count",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "SELECT non_negative_derivative(\"value\", 1s)  FROM \"shuffleTotalBytesRead.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY process",
+          "query": "SELECT non_negative_derivative(\"value\", 1s)  FROM \"executor.shuffleTotalBytesRead\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter GROUP BY executor_id",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -3889,7 +3892,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "shuffleBytesWritten - Executor $tag_process",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -3907,7 +3910,7 @@
           "measurement": "shuffleBytesWritten.count",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "SELECT non_negative_derivative(\"value\", 1s)  FROM \"shuffleBytesWritten.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY process",
+          "query": "SELECT non_negative_derivative(\"value\", 1s)  FROM \"executor.shuffleBytesWritten\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter GROUP BY executor_id",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -4043,7 +4046,7 @@
           "measurement": "shuffleRemoteBytesRead.count",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) as perprocessval FROM \"shuffleRemoteBytesRead.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY time($__interval), process) GROUP BY time($__interval)\n",
+          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) as perprocessval FROM \"executor.shuffleRemoteBytesRead\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter GROUP BY time($__interval), process) GROUP BY time($__interval)\n",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -4088,7 +4091,7 @@
           "measurement": "shuffleLocalBytesRead.count",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) as perprocessval FROM \"shuffleLocalBytesRead.count\" WHERE \"applicationid\" = '$ApplicationId' AND $timeFilter GROUP BY time($__interval),  \"process\") GROUP BY time($__interval)",
+          "query": "select sum(perprocessval) from (SELECT non_negative_derivative(last(\"value\"), 1s) as perprocessval FROM \"executor.shuffleLocalBytesRead\" WHERE \"app_id\" = '$PipelineName' AND $timeFilter GROUP BY time($__interval),  \"process\") GROUP BY time($__interval)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series",
@@ -4172,10 +4175,9 @@
       {
         "allValue": null,
         "current": {
-          "isNone": true,
           "selected": false,
-          "text": "None",
-          "value": ""
+          "text": "guest_feature",
+          "value": "guest_feature"
         },
         "datasource": "InfluxDB",
         "definition": "",
@@ -4199,10 +4201,9 @@
       {
         "allValue": null,
         "current": {
-          "isNone": true,
           "selected": false,
-          "text": "None",
-          "value": ""
+          "text": "application_1591344084016_3079556",
+          "value": "application_1591344084016_3079556"
         },
         "datasource": "InfluxDB",
         "definition": "",
@@ -4222,12 +4223,38 @@
         "tagsQuery": "",
         "type": "query",
         "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "2",
+          "value": "2"
+        },
+        "datasource": "InfluxDB",
+        "definition": "SHOW TAG VALUES WITH KEY = \"executor_id\" where \"application\" =~ /$Pipeline/  ",
+        "hide": 0,
+        "includeAll": false,
+        "label": "ExecutorId",
+        "multi": false,
+        "name": "Executors",
+        "options": [],
+        "query": "SHOW TAG VALUES WITH KEY = \"executor_id\" where \"application\" =~ /$Pipeline/  ",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 3,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
       }
     ]
   },
   "time": {
-    "from": "now",
-    "to": "now-5m"
+    "from": "now-15m",
+    "to": "now-10m"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -4256,5 +4283,5 @@
   "timezone": "",
   "title": "Roundel_Spark_Dashboard",
   "uid": "1",
-  "version": 1
+  "version": 5
 }
